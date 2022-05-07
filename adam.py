@@ -19,10 +19,9 @@ def main():
 
 		await client.process_commands(ctx)
 
-	@client.command()
-	async def ping(ctx):
-		"""Checks if the bot is Alive"""
-		await ctx.send("Pong")
+	for folder in os.listdir("modules"):
+		if os.path.exists(os.path.join("modules", folder, "cog.py")):
+			client.load_extension(f"modules.{folder}.cog")
 
 	client.run(os.getenv("DISCORD_TOKEN"))
 
