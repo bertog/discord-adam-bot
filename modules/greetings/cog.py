@@ -1,4 +1,3 @@
-from ast import If
 from nextcord.ext import commands
 
 class Greetings(commands.Cog, name="Greetings"):
